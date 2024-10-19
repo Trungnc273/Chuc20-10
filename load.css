@@ -1,0 +1,154 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffe6e6;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Chung cho các màn */
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffe6e6;
+    z-index: 100;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Hiệu ứng trái tim */
+.heart {
+    width: 120px;
+    height: 120px;
+    background-color: red;
+    position: relative;
+    transform: rotate(-45deg);
+    animation: beat 1s infinite alternate;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6), 0 0 40px rgba(255, 0, 0, 0.4), 0 0 60px rgba(255, 0, 0, 0.2);
+}
+
+.heart::before, .heart::after {
+    content: "";
+    width: 120px;
+    height: 120px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart::before {
+    top: -60px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: 60px;
+}
+
+@keyframes beat {
+    0% {
+        transform: scale(1) rotate(-45deg);
+    }
+    100% {
+        transform: scale(1.3) rotate(-45deg);
+    }
+}
+
+/* Thanh loading */
+.loading-bar {
+    margin-top: 100px;
+    width: 70%;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.loading-progress {
+    width: 0;
+    height: 100%;
+    background-color: #ff6666;
+    animation: loading 3s linear forwards;
+}
+
+@keyframes loading {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/* Hiệu ứng cắt cảnh */
+.cutscene {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    animation: cutScene 1s ease-in-out forwards;
+}
+
+@keyframes cutScene {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Nội dung lời chúc */
+.container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    z-index: 10;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #ff6666;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+#message {
+    margin-top: 20px;
+}
+
+h2 {
+    color: #ff6666;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.message-animate {
+    animation: slideIn 1s ease forwards;
+}
